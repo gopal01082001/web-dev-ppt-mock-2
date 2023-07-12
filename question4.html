@@ -1,0 +1,101 @@
+<!-- 4. Build a responsive Navbar, on smaller screens it should be a hamburger menu which on click should reveal the menu items nicely, and on larger screens they should be displayed directly on the screen. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 10px;
+    }
+
+    .navbar-menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    /* Hamburger menu styles */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger-menu span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 5px;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: none;
+      }
+
+      .hamburger-menu {
+        display: block;
+      }
+
+      .navbar-menu.open {
+        display: block;
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("navbarMenu");
+      menu.classList.toggle("open");
+    }
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Logo</div>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="navbar-menu" id="navbarMenu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    // Close the menu when a menu item is clicked (for smaller screens)
+    var menuItems = document.getElementsByClassName("navbar-menu")[0].getElementsByTagName("a");
+    for (var i = 0; i < menuItems.length; i++) {
+      menuItems[i].addEventListener("click", function() {
+        var menu = document.getElementById("navbarMenu");
+        menu.classList.remove("open");
+      });
+    }
+  </script>
+</body>
+</html>

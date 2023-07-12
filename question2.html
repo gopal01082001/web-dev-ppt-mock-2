@@ -1,0 +1,29 @@
+<!-- 2. Create a app where you have an input box and whenever a user types something in the input box and hits submit it should be added on the webpage below the input box -->
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function addItem() {
+      // Get the user input from the input box
+      var userInput = document.getElementById("inputBox").value;
+
+      // Create a new paragraph element
+      var newItem = document.createElement("p");
+
+      // Set the text content of the new paragraph to the user input
+      newItem.textContent = userInput;
+
+      // Append the new paragraph to the container div
+      document.getElementById("container").appendChild(newItem);
+
+      // Clear the input box for the next input
+      document.getElementById("inputBox").value = "";
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="inputBox">
+  <button onclick="addItem()">Submit</button>
+  <div id="container"></div>
+</body>
+</html>
